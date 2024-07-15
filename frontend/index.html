@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Promptly</title>
+    <link rel="stylesheet" href="css/output.css">
+    
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <!-- Content Security Policy (CSP) to prevent XSS attacks -->
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+</head class="h-screen">
+<body>
+    <header class="bg-blue-300 flex items-center p-4">
+        <h1 class="text-5xl">Promptly</h1>
+        <div class="text-sm mt-auto ml-4">A simple <span class="typer" id="main" data-words="minimalist, and easy to use, and user friendly" data-delay="200" data-deleteDelay="1500" data-colors="black"></span> reminder app</div>
+    </header>
+    <article class="mt-28 flex flex-col">
+        <h2 class="text-3xl mx-auto">Welcome to Promptly,<br> your personal reminder app</h2>
+        <form class="mt-11 mx-auto" action="/frontend/set reminder.html" method="post">
+            <button type="submit" class="bg-blue-300 hover:bg-blue-400 hover:rounded-lg p-3 text-2xl">Set a Reminder</button>
+        </form>
+    </article>
+    
+    <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
+</body>
+</html>
