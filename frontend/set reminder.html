@@ -9,10 +9,28 @@
     <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <!-- <title>Document</title> -->
+     <link rel="stylesheet" href="css/output.css">
 </head>
 <body>
-    <form action="" method="post">
-        <button type="reset">back</button>
+    <h1 class="text-5xl bg-blue-300 p-4">Promptly</h1>
+    <form id="startPage">
+        <div>
+            <div class="flex">
+                <label for="taskInput">Task</label>
+                <input type="text" id="taskInput" placeholder="Enter a task" name="taskInput">
+            </div>
+            <button type="submit">Submit</button>
+            <div class="flex">
+
+            </div>
+
+            <div class="flex">
+
+            </div>
+        </div>
+                
     </form>
+
+    <script src="js/renderer.js"></script>
 </body>
 </html>
