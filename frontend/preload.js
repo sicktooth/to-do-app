@@ -1,14 +1,8 @@
-// // preload.js
-// const { contextBridge, ipcRenderer } = require('electron');
+const { contextBridge } = require('electron')
 
-// contextBridge.exposeInMainWorld('myApp', {
-//   readFile: async (filePath) => {
-//     try {
-//       const fileData = await ipcRenderer.invoke('read-file', filePath);
-//       return fileData;
-//     } catch (error) {
-//       console.error('Error reading file:', error);
-//       return null;
-//     }
-//   },
-// });
+contextBridge.exposeInMainWorld('versions', {
+  node: () => process.versions.node,
+  chrome: () => process.versions.chrome,
+  electron: () => process.versions.electron
+  // we can also expose variables, not just functions
+})

@@ -1,3 +1,3 @@
 document.getElementById("startPage").addEventListener("click", () => {
-    window.location.href = "set reminder.html";
+    window.location.href = "main.html";
 });
