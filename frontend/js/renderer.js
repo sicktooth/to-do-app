@@ -16,8 +16,11 @@ taskSubmit.addEventListener('click', async () => {
     })
 
     console.log(res);
+    var para = document.createElement('p');
+    var node = taskName + ' ' + date + ' ' + time;
+    para.appendChild(document.createTextNode(node));
+    totalTaskContainer.appendChild(para);
     taskNameEl.value = "";
-    date = taskDate.value = "";
-    time = taskTime.value = "";
+    taskDate.value = "";
+    taskTime.value = "";
 })
-

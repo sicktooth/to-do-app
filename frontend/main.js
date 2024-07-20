@@ -33,7 +33,9 @@ app.on('window-all-closed', () => {
 
 ipcMain.handle('form-submitted', (req, data) => {
   if (!data || !data.date || !data.taskName || !data.time) return false;
-
-  console.log(data.taskName, data.date, data.time);
-  return true;
+  let taskName = data.taskName;
+  let date = data.date;
+  let time = data.time;
+  // console.log(data.taskName, data.date, data.time);
+  return { taskName, date, time};
 });

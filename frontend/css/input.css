@@ -2,13 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400&display=swap');
 
 .roboto-mono-head {
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
+}
+
+.rajdhani-light {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 300;
+    font-style: normal;
   }
+  
+.rajdhani-regular {
+    font-family: "Rajdhani", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+  
 /* .header {
     height: 15%;
 } */
