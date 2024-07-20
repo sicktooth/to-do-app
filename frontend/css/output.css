@@ -688,6 +688,14 @@ video {
   line-height: 1.25rem;
 }
 
+.no-underline {
+  text-decoration-line: none;
+}
+
+.decoration-black {
+  text-decoration-color: #000;
+}
+
 .outline-black {
   outline-color: #000;
 }
