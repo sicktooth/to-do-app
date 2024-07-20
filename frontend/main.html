@@ -13,24 +13,26 @@
 </head>
 <body>
     <h1 class="text-5xl bg-blue-300 p-4">Promptly</h1>
-    <form id="startPage">
         <div>
             <div class="flex">
-                <label for="taskInput">Task</label>
-                <input type="text" id="taskInput" placeholder="Enter a task" name="taskInput">
+                <label for="taskName" class="mr-3">Task:</label>
+                <input type="text" id="taskName" placeholder="Enter a task">
             </div>
-            <button type="submit">Submit</button>
+            
             <div class="flex">
-
+                <label for="taskDate" class="mr-3">Date:</label>
+                <input type="date" id="taskDate">
             </div>
 
-            <p class="flex" id="info">
+            <div class="flex">
+                <label for="taskTime" class="mr-3">Time:</label>
+                <input type="time" id="taskTime">
+            </div>
+            
+            <button id="submitBtn">Submit</button>
 
-            </p>
         </div>
                 
-    </form>
-
     <script src="js/renderer.js"></script>
 </body>
 </html>

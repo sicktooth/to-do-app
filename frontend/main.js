@@ -31,7 +31,11 @@ app.on('window-all-closed', () => {
 });
 
 
-// ipcMain.on('form-submitted', (event, data) => {
+ipcMain.handle('form-submitted', (req, data) => {
+  if (!data || !data.date || !data.taskName || !data.time) return false;
 
-//   // win.loadFile('success.html');
-// });
+  console.log(data.taskName, data.date, data.time);
+  return true;
+
+  // win.loadFile('success.html');
+});

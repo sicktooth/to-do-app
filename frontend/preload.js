@@ -1,8 +1,10 @@
-const { contextBridge } = require('electron')
+const { contextBridge, ipcRenderer } = require('electron')
 
-contextBridge.exposeInMainWorld('versions', {
+contextBridge.exposeInMainWorld('api', {
   node: () => process.versions.node,
   chrome: () => process.versions.chrome,
-  electron: () => process.versions.electron
-  // we can also expose variables, not just functions
+  electron: () => process.versions.electron,
+
+  submitTask: (data) => ipcRenderer.invoke('form-submitted', data)
+
 })
