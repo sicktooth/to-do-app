@@ -36,6 +36,4 @@ ipcMain.handle('form-submitted', (req, data) => {
 
   console.log(data.taskName, data.date, data.time);
   return true;
-
-  // win.loadFile('success.html');
 });
