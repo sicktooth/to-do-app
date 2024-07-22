@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Content Security Policy (CSP) to prevent XSS attacks -->
-    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
-    <title>Home</title>
-     <link rel="stylesheet" href="css/output.css">
-</head>
-<body>
-    
-    <h1 class="text-5xl bg-blue-300 p-4 roboto-mono-head">Promptly</h1>
-    <!-- <a href="index.html">home</a> -->
-    <div class="flex flex-col mt-5 px-5">
-        <div class="flex mb-6">
-            <label for="taskName" class="mr-3 text-2xl">Task:</label>
-            <input class="outline-black border border-black w-7/12 px-1 py-3" type="text" id="taskName" placeholder="Enter a task name">
-        </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Content Security Policy (CSP) to prevent XSS attacks -->
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+        <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+        <title>Home</title>
+        <link rel="stylesheet" href="css/output.css">
+    </head>
+    <body class="bg-slate-100">
         
-        <div class="flex mb-6">
-            <label for="taskDate" class="mr-3 text-2xl">Date:</label>
-            <input class="outline-black border border-black p-1 w-1/4" type="date" id="taskDate">
+        <h1 class="text-3xl bg-blue-300 p-2 roboto-mono-head">Promptly</h1>
+        <a href="index.html">home</a>
+        <div class="flex flex-col mt-5 w-2/4 mx-auto">
+            <div class="flex flex-col mb-6">
+                <label for="taskName" class="mb-3 text-2xl">Title</label>
+                <input class="outline-green-300 border border-transparent p-3 rounded-lg" type="text" id="taskName" placeholder="add a title ...">
+            </div>
+            
+            <div class="flex flex-col mb-6">
+                <label for="taskDate" class="mb-3 text-2xl">Date</label>
+                <input class="outline-green-300 border border-transparent p-1 w-1/4 rounded-lg" type="date" id="taskDate">
+            </div>
+
+            <div class="flex flex-col">
+                <label for="taskTime" class="mb-3 text-2xl">Time</label>
+                <input class="outline-green-300 border border-transparent p-1 w-1/4 rounded-lg" type="time" id="taskTime">
+            </div>
+            
+            <button class="bg-blue-300 hover:bg-blue-400 hover:rounded-lg p-3 text-2xl mt-11 ml-auto roboto-mono-head mb-4" id="submitBtn">Add Reminder</button>
+
+            <div class="w-1/2 border border-black p-1 h-auto" id="tasks"></div>
+            <a class="no-underline decoration-black" href="allTasks.html">View All</a>
+
         </div>
 
-        <div class="flex">
-            <label for="taskTime" class="mr-3 text-2xl">Time:</label>
-            <input class="outline-black border border-black p-1 w-1/4" type="time" id="taskTime">
-        </div>
+        <script src="js/renderer.js"></script>
+        <script src="js/jquery.min.js"></script>
+        <script src="js/script.js"></script>      
         
-        <button class="bg-blue-300 hover:bg-blue-400 hover:rounded-lg p-3 text-2xl mt-11 ml-auto roboto-mono-head mb-4" id="submitBtn">Add Reminder</button>
-
-        <div class="w-1/2 border border-black p-1 h-20" id="tasks"></div>
-        <a class="no-underline decoration-black" href="allTasks.html">View All</a>
-
-    </div>
-                
-    <script src="js/renderer.js"></script>
-</body>
+    </body>
 </html>

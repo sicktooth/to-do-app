@@ -15,12 +15,9 @@ taskSubmit.addEventListener('click', async () => {
         time
     })
 
-    console.log(res);
-    var para = document.createElement('p');
-    var node = taskName + ' ' + date + ' ' + time;
-    para.appendChild(document.createTextNode(node));
-    totalTaskContainer.appendChild(para);
-    taskNameEl.value = "";
-    taskDate.value = "";
-    taskTime.value = "";
+    console.log(new Date(date).getFullYear());
+    // var para = document.createElement('p');
+    // var node = taskName + ' ' + date + ' ' + time;
+    // para.appendChild(document.createTextNode(node));
+    // totalTaskContainer.appendChild(para);
 })
