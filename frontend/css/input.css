@@ -7,7 +7,7 @@
 .roboto-mono-head {
     font-family: "Roboto Mono", monospace;
     font-optical-sizing: auto;
-    font-weight: normal;
+    /* font-weight: normal; */
     font-style: normal;
 }
 
@@ -23,6 +23,16 @@
     font-style: normal;
 }
   
+#tasks:hover h3 {
+    display: block;
+}
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
   
 /* .header {
     height: 15%;
