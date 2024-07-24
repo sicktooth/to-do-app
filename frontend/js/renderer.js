@@ -3,6 +3,7 @@ const taskNameEl = document.getElementById('taskName'),
       taskTime = document.getElementById('taskTime'),
       taskSubmit = document.getElementById('submitBtn'),
       totalTaskContainer = document.getElementById('tasks'),
+      allTasks = document.getElementById('allTasks'),
       today = new Date(),
 thisYear = today.getFullYear();
 
@@ -29,7 +30,7 @@ taskSubmit.addEventListener('click', async () => {
     });
 
     const taskDiv = document.createElement('div');
-    taskDiv.classList.add('task', 'mb-3');
+    taskDiv.classList.add('task', 'mb-3', 'flex-1');
 
     const taskNameHeader = document.createElement('h3');
     taskNameHeader.textContent = taskName;
@@ -45,6 +46,7 @@ taskSubmit.addEventListener('click', async () => {
     taskDiv.appendChild(taskTimeParagraph);
 
     totalTaskContainer.appendChild(taskDiv);
+    allTasks.appendChild(taskDiv);
 
 
     // show success message
@@ -52,11 +54,11 @@ taskSubmit.addEventListener('click', async () => {
     clearData();
 
     console.log(new Date(date).getFullYear());
-    // var para = document.createElement('p');
-    // var node = taskName + ' ' + date + ' ' + time;
-    // para.appendChild(document.createTextNode(node));
-    // totalTaskContainer.appendChild(para);
 });
+
+totalTaskContainer.addEventListener('click', () => {
+    window.location.href = "allTasks.html";
+})
 
 const clearData = () => {
     taskNameEl.value = '';
