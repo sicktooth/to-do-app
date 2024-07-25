@@ -29,11 +29,17 @@ taskSubmit.addEventListener('click', async () => {
         time
     });
 
-    const taskDiv = document.createElement('div');
+    clearData();
+
+    const taskDiv = document.createElement('article');
     taskDiv.classList.add('task', 'mb-3', 'flex-1');
 
     const taskNameHeader = document.createElement('h3');
+    taskNameHeader.classList.add('text-bold', 'text-4xl');
     taskNameHeader.textContent = taskName;
+
+    const taskContent = document.createElement('div');
+    taskContent.classList.add('flex', 'flex-wrap', 'text-sm', 'gap-1');
 
     const taskDateParagraph = document.createElement('p');
     taskDateParagraph.textContent = `Date: ${date}`;
@@ -42,16 +48,16 @@ taskSubmit.addEventListener('click', async () => {
     taskTimeParagraph.textContent = `Time: ${time}`;
 
     taskDiv.appendChild(taskNameHeader);
-    taskDiv.appendChild(taskDateParagraph);
-    taskDiv.appendChild(taskTimeParagraph);
+    taskContent.appendChild(taskTimeParagraph);
+    taskContent.appendChild(taskDateParagraph);
+    taskDiv.appendChild(taskContent);
 
     totalTaskContainer.appendChild(taskDiv);
-    allTasks.appendChild(taskDiv);
 
 
     // show success message
-    alert('Task submitted successfully');
-    clearData();
+    
+    // allTasks.appendChild(taskDiv);
 
     console.log(new Date(date).getFullYear());
 });
