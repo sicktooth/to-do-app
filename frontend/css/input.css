@@ -33,7 +33,17 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-  
-/* .header {
-    height: 15%;
-} */
+
+.taskNameHeader {
+    font-weight: 600;
+    font-size: 1.875rem;
+    line-height: 2rem;
+}
+.taskContent {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}

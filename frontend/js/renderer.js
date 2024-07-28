@@ -1,26 +1,29 @@
 const taskNameEl = document.getElementById('taskName'),
-      taskDate = document.getElementById('taskDate'),
-      taskTime = document.getElementById('taskTime'),
-      taskSubmit = document.getElementById('submitBtn'),
-      totalTaskContainer = document.getElementById('tasks'),
-      allTasks = document.getElementById('allTasks'),
-      today = new Date(),
-thisYear = today.getFullYear();
+        taskDate = document.getElementById('taskDate'),
+        taskTime = document.getElementById('taskTime'),
+        taskSubmit = document.getElementById('submitBtn'),
+        totalTaskContainer = document.getElementById('tasks'),
+        thisDay = new Date().getDate(),
+        thisMonth = new Date().getMonth(),
+thisYear = new Date().getFullYear();
 
 
 taskSubmit.addEventListener('click', async () => {
     const taskName = taskNameEl.value,
             date = taskDate.value,
             time = taskTime.value,
-            userYear = new Date(date).getFullYear();
-    
-    if(!taskName ||!date ||!time){
-        alert('Please fill all fields');
-        return;
-    } else if (userYear < thisYear) {
+            userMonth = new Date(date).getMonth(),
+            userDay = new Date(date).getDate(),
+    userYear = new Date(date).getFullYear();
+
+    if (userDay < thisDay || userMonth < thisMonth || userYear < thisYear) {
+        alert("Please select a date in the future")
         clearData();
-        alert('Task date cannot be in the past');
-        return;
+    }
+
+    else if(!taskName ||!date ||!time){
+        alert('Please fill all fields');
+        clearData();
     }
     
     const res = await api.submitTask({
@@ -29,17 +32,21 @@ taskSubmit.addEventListener('click', async () => {
         time
     });
 
-    clearData();
+    
+
+    var firstLetter_TN = taskName.slice(0,1).toUpperCase();
+    var restName = taskName.slice(1,taskName.length);
+    var taskHeaderName = firstLetter_TN + restName;
 
     const taskDiv = document.createElement('article');
     taskDiv.classList.add('task', 'mb-3', 'flex-1');
 
     const taskNameHeader = document.createElement('h3');
-    taskNameHeader.classList.add('text-bold', 'text-4xl');
-    taskNameHeader.textContent = taskName;
+    taskNameHeader.classList.add('taskNameHeader');
+    taskNameHeader.textContent = taskHeaderName;
 
     const taskContent = document.createElement('div');
-    taskContent.classList.add('flex', 'flex-wrap', 'text-sm', 'gap-1');
+    taskContent.classList.add('taskContent');
 
     const taskDateParagraph = document.createElement('p');
     taskDateParagraph.textContent = `Date: ${date}`;
@@ -51,15 +58,8 @@ taskSubmit.addEventListener('click', async () => {
     taskContent.appendChild(taskTimeParagraph);
     taskContent.appendChild(taskDateParagraph);
     taskDiv.appendChild(taskContent);
-
     totalTaskContainer.appendChild(taskDiv);
-
-
-    // show success message
-    
-    // allTasks.appendChild(taskDiv);
-
-    console.log(new Date(date).getFullYear());
+    clearData();
 });
 
 totalTaskContainer.addEventListener('click', () => {
@@ -71,3 +71,4 @@ const clearData = () => {
     taskDate.value = '';
     taskTime.value = '';
 }
+
