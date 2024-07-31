@@ -5,38 +5,20 @@ const taskNameEl = document.getElementById('taskName'),
         titleEm = document.getElementById('errorTitle'),
         dateEm = document.getElementById('errorDate'),
         timeEm = document.getElementById('errorTime'),
-        totalTaskContainer = document.getElementById('tasks'),
-        thisDay = new Date().getDate(),
+        totalTaskContainer = document.getElementById('tasks');
+
+const   thisDay = new Date().getDate(),
         thisMonth = new Date().getMonth(),
-thisYear = new Date().getFullYear();
+        thisHour = new Date().getHours(),
+        thisYear = new Date().getFullYear();
 
 
 
-    // const validateForm = () => {
-
-    //     if (!taskName || !date || !time) {
-    //         return checkTaskName();
-    //     } else {
-    //         rmCheckTaskNameEm();
-    //         createTask();
-    //     }
-       
-    
-    // }
 taskSubmit.addEventListener('click', async () => {
 
     var taskName = taskNameEl.value,
             date = taskDateEl.value,
-            time = taskTimeEl.value,
-            userMonth = new Date(date).getMonth(),
-            userDay = new Date(date).getDate(),
-    userYear = new Date(date).getFullYear();
-
-    // if (userDay < thisDay || userMonth < thisMonth || userYear < thisYear) {
-    //     alert("Please select a date in the future")
-    //     clearData();
-    // }
-    // validateForm();
+    time = taskTimeEl.value;
     
     const res = await api.submitTask({
         taskName,
@@ -72,9 +54,32 @@ taskSubmit.addEventListener('click', async () => {
         totalTaskContainer.appendChild(taskDiv);
         clearData();
     }
-
-    createTask();
-   
+    
+    switch (true) {
+        case !taskName && !date && !time:
+            checkTaskName();
+            checkDate();
+            checkTime();
+            break;
+        case !taskName:
+            checkTaskName();
+            break;
+        case !date:
+            checkDate();
+            break;
+        case !time:
+            checkTime();
+            break;
+        case checkBackDate():
+            checkBackDate();
+            break;
+        case checkBackTime():
+            checkBackTime();
+            break;
+        default:
+            createTask();
+            break;
+    }
 });
 
 const checkTaskName = () =>{
@@ -83,29 +88,111 @@ const checkTaskName = () =>{
     taskNameEl.classList.remove("border-transparent");
     titleEm.classList.add("block")
     taskNameEl.classList.add("errorInput")
+}
+
+const checkDate = () => {
+    dateEm.textContent = "Please select a date";
+    dateEm.classList.remove("hidden");
+    taskDateEl.classList.remove("border-transparent");
+    dateEm.classList.add("block")
+    taskDateEl.classList.add("errorInput")
+}
+
+const checkTime = () => {
+    timeEm.textContent = "Please select a specific time";
+    timeEm.classList.remove("hidden");
+    taskTimeEl.classList.remove("border-transparent");
+    timeEm.classList.add("block")
+    taskTimeEl.classList.add("errorInput")
+}
+
+const checkBackTime = () => {
+    let taskDate = new Date(taskDateEl.value),
+        userMonth = taskDate.getMonth(),
+        userDay = taskDate.getDate(), 
+        taskTime = new Date(taskTimeEl.value),
+        userHour = taskTime.getHours(),
+        userMinutes = taskTime.getMinutes();
+
+    if (userMonth == thisMonth && userDay == thisDay && userHour < thisHour) {
+        checkTime();
+        timeEm.textContent = "Please input an hour in the future";
+        return true;
+    } else if (userMonth == thisMonth && userDay == thisDay && userHour == thisHour && userMinutes < thisMinute) {
+        checkTime();
+        timeEm.textContent = "Please input time in the future";
+        return true;
+    }
+    return false;
+} // Not working
+
+const checkBackDate = () => {
+    let taskDate = new Date(taskDateEl.value),
+        userMonth = taskDate.getMonth(),
+        userDay = taskDate.getDate(),
+    userYear = taskDate.getFullYear();
+    if (userYear < thisYear){
+        checkDate();
+        dateEm.textContent = "Please input this year or later.";
+        return true;
+    } else if (userMonth < thisMonth){
+        checkDate();
+        dateEm.textContent = "Please input this month or later.";
+        return true;
+    } else if (userYear == thisYear && userMonth == thisMonth && userDay < thisDay){
+        checkDate();
+        dateEm.textContent = "Please input a today or later.";
+        return true;
+    }
+    return false;
     
 }
-const rmCheckTaskNameEm = () => {
-    taskNameEl.classList.add("border-transparent");
-    taskNameEl.classList.remove("errorInput")
-    titleEm.classList.add("hidden");
-    titleEm.classList.remove("block")
+
+const clearEm = (elem,error) => {
+        elem.classList.remove("errorInput");
+        elem.classList.add("border-transparent");
+        error.classList.add("hidden");
+        error.classList.remove("block");
+        error.textContent = "";
 }
 
 taskNameEl.addEventListener("input", () => {
     if (taskNameEl.value.length <= 3) {
-        titleEm.textContent = "Please add a title";
-        titleEm.classList.remove("hidden");
-        taskNameEl.classList.remove("border-transparent");
-        titleEm.classList.add("block");
-        taskNameEl.classList.add("errorInput");
+       checkTaskName();
+        titleEm.textContent = "Task name should be at least 4 characters long";
     } else {
-        taskNameEl.classList.remove("errorInput");
-        taskNameEl.classList.add("border-transparent");
-        titleEm.classList.add("hidden");
-        titleEm.classList.remove("block");
-        titleEm.textContent = "";
+        clearEm(taskNameEl,titleEm);
     }
+});
+
+taskDateEl.addEventListener("input", () => {
+    switch (true) {
+        case !taskDateEl.value:
+            checkDate();
+        break;
+        case checkBackDate():
+            checkBackDate();
+        break;
+    
+        default:
+            clearEm(taskDateEl, dateEm);
+        break;
+    }
+});
+
+taskTimeEl.addEventListener("input", () => {
+    switch (true) {
+        case !taskTimeEl.value:
+            checkTime();
+        break;
+        case checkBackTime():
+            checkBackTime();
+        break;
+        default:
+            clearEm(taskTimeEl, timeEm);
+        break;
+    }
+
 });
 
 

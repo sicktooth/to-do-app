@@ -627,6 +627,22 @@ video {
   height: 100vh;
 }
 
+.h-10 {
+  height: 2.5rem;
+}
+
+.h-16 {
+  height: 4rem;
+}
+
+.h-24 {
+  height: 6rem;
+}
+
+.h-28 {
+  height: 7rem;
+}
+
 .w-2\/4 {
   width: 50%;
 }
@@ -692,6 +708,10 @@ video {
 
 .p-1 {
   padding: 0.25rem;
+}
+
+.p-2 {
+  padding: 0.5rem;
 }
 
 .p-3 {
@@ -819,4 +839,16 @@ video {
 .hover\:bg-blue-400:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(96 165 250 / var(--tw-bg-opacity));
+}
+
+@media not all and (min-width: 1024px) {
+  .max-lg\:w-9\/12 {
+    width: 75%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:w-9\/12 {
+    width: 75%;
+  }
 }
