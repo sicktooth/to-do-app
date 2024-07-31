@@ -46,11 +46,19 @@ taskSubmit.addEventListener('click', async () => {
     
         const taskTimeParagraph = document.createElement('p');
         taskTimeParagraph.textContent = `Time: ${time}`;
+
+
+        const executionTime = document.createElement('p');
+        executionTime.classList.add('executionTime');
+        const currentTime = new Date();
+        const formattedTime = currentTime.toLocaleTimeString('en-US', { hour12: true });
+        executionTime.textContent = ` ${formattedTime}`;
     
         taskDiv.appendChild(taskNameHeader);
         taskContent.appendChild(taskTimeParagraph);
         taskContent.appendChild(taskDateParagraph);
         taskDiv.appendChild(taskContent);
+        taskDiv.appendChild(executionTime);
         totalTaskContainer.appendChild(taskDiv);
         clearData();
     }

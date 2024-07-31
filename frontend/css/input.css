@@ -47,6 +47,11 @@
     flex-wrap: wrap;
     margin-top: 0.5rem;
 }
+.executionTime {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    margin-top: 0.5rem;
+}
 .errorInput {
     border-color: rgba(248, 113, 113,1);
     outline-color: rgba(248, 113, 113,1);
