@@ -27,16 +27,19 @@
             <div class="flex flex-col mb-6">
                 <label for="taskName" class="mb-3 text-2xl">Title</label>
                 <input class="outline-green-300 border border-transparent p-3 rounded-lg" type="text" id="taskName" placeholder="add a title ...">
+                <div id="errorTitle" role="alert" class="h-5 hidden text-sm mt-2 ml-3 text-red-400"></div>
             </div>
             
             <div class="flex flex-col mb-6">
                 <label for="taskDate" class="mb-3 text-2xl">Date</label>
-                <input class="outline-green-300 border border-transparent p-1 w-1/4 rounded-lg" type="date" id="taskDate">
+                <input class="outline-green-300 border border-transparent p-1 w-2/6 rounded-lg" type="date" id="taskDate">
+                <div id="errorDate" role="alert" class="h-5 hidden text-sm mt-2 ml-3 text-red-400">Please add a date in the future</div>
             </div>
 
             <div class="flex flex-col">
                 <label for="taskTime" class="mb-3 text-2xl">Time</label>
-                <input class="outline-green-300 border border-transparent p-1 w-1/4 rounded-lg" type="time" id="taskTime">
+                <input class="outline-green-300 border border-transparent p-1 w-2/6 rounded-lg" type="time" id="taskTime">
+                <div id="errorTime" role="alert" class="h-5 text-sm mt-2 ml-3 text-red-400">Please choose your preferred time in the future</div>
             </div>
             
             <button class="bg-blue-300 hover:bg-blue-400 hover:rounded-lg p-3 text-2xl mt-11 ml-auto roboto-mono-head font-medium mb-4" id="submitBtn">Add Reminder</button>
