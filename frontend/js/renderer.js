@@ -1,6 +1,6 @@
 const taskNameEl = document.getElementById('taskName'),
-        taskDateEl = document.getElementById('taskDate'),
-        taskTimeEl = document.getElementById('taskTime'),
+        taskDateTimeEl = document.getElementById('taskDateTime'),
+        // taskTimeEl = document.getElementById('taskTime'),
         taskSubmit = document.getElementById('submitBtn'),
         titleEm = document.getElementById('errorTitle'),
         dateEm = document.getElementById('errorDate'),
@@ -10,6 +10,7 @@ const taskNameEl = document.getElementById('taskName'),
 const   thisDay = new Date().getDate(),
         thisMonth = new Date().getMonth(),
         thisHour = new Date().getHours(),
+        thisMinute = new Date().getMinutes(),
         thisYear = new Date().getFullYear();
 
 
@@ -17,13 +18,12 @@ const   thisDay = new Date().getDate(),
 taskSubmit.addEventListener('click', async () => {
 
     var taskName = taskNameEl.value,
-            date = taskDateEl.value,
-    time = taskTimeEl.value;
+            dateTime = taskDateTimeEl.value;
+    // time = taskTimeEl.value;
     
     const res = await api.submitTask({
         taskName,
-        date,
-        time
+        dateTime
     });
 
     const createTask = () => {
@@ -78,12 +78,12 @@ taskSubmit.addEventListener('click', async () => {
         case !time:
             checkTime();
             break;
-        case checkBackDate():
-            checkBackDate();
+        case checkBackDateTime():
+            checkBackDateTime();
             break;
-        case checkBackTime():
-            checkBackTime();
-            break;
+        // case checkBackTime():
+        //     checkBackTime();
+        //     break;
         default:
             createTask();
             break;
@@ -101,44 +101,59 @@ const checkTaskName = () =>{
 const checkDate = () => {
     dateEm.textContent = "Please select a date";
     dateEm.classList.remove("hidden");
-    taskDateEl.classList.remove("border-transparent");
+    taskDateTimeEl.classList.remove("border-transparent");
     dateEm.classList.add("block")
-    taskDateEl.classList.add("errorInput")
+    taskDateTimeEl.classList.add("errorInput")
 }
 
 const checkTime = () => {
-    timeEm.textContent = "Please select a specific time";
-    timeEm.classList.remove("hidden");
-    taskTimeEl.classList.remove("border-transparent");
-    timeEm.classList.add("block")
-    taskTimeEl.classList.add("errorInput")
+    checkDate();
+    dateEm.textContent = "Please select a specific time";
+    // timeEm.classList.remove("hidden");
+    // taskTimeEl.classList.remove("border-transparent");
+    // timeEm.classList.add("block")
+    // taskTimeEl.classList.add("errorInput")
 }
 
-const checkBackTime = () => {
-    let taskDate = new Date(taskDateEl.value),
+// const checkBackTime = () => {
+//     let taskDate = new Date(taskDateTimeEl.value),
+//         userMonth = taskDate.getMonth(),
+//         userDay = taskDate.getDate(), 
+//         taskTime = new Date(taskDateTimeEl.value),
+//         userHour = taskTime.getHours(),
+//         userMinutes = taskTime.getMinutes();
+
+//     if (userMonth == thisMonth && userDay == thisDay && userHour < thisHour) {
+//         checkTime();
+//         dateEm.textContent = "Please input this hour or later";
+//         return true;
+//     } else if (userMonth == thisMonth && userDay == thisDay && userHour == thisHour && userMinutes < thisMinute) {
+//         checkTime();
+//         dateEm.textContent = "Please input some mins in the future";
+//         return true;
+//     }
+//     return false;
+// }
+
+const checkBackDateTime = () => {
+    let taskDate = new Date(taskDateTimeEl.value),
         userMonth = taskDate.getMonth(),
-        userDay = taskDate.getDate(), 
-        taskTime = new Date(taskTimeEl.value),
+        userDay = taskDate.getDate(),
+        userYear = taskDate.getFullYear(),
+        taskTime = new Date(taskDateTimeEl.value),
         userHour = taskTime.getHours(),
-        userMinutes = taskTime.getMinutes();
+    userMinutes = taskTime.getMinutes();
 
     if (userMonth == thisMonth && userDay == thisDay && userHour < thisHour) {
         checkTime();
-        timeEm.textContent = "Please input an hour in the future";
+        dateEm.textContent = "Please input this hour or later";
         return true;
-    } else if (userMonth == thisMonth && userDay == thisDay && userHour == thisHour && userMinutes < thisMinute) {
+    } else if (userMonth == thisMonth && userDay == thisDay && userHour == thisHour && userMinutes <= thisMinute) {
         checkTime();
-        timeEm.textContent = "Please input time in the future";
+        dateEm.textContent = "Please input some mins in the future";
         return true;
-    }
-    return false;
-} // Not working
+    };
 
-const checkBackDate = () => {
-    let taskDate = new Date(taskDateEl.value),
-        userMonth = taskDate.getMonth(),
-        userDay = taskDate.getDate(),
-    userYear = taskDate.getFullYear();
     if (userYear < thisYear){
         checkDate();
         dateEm.textContent = "Please input this year or later.";
@@ -173,35 +188,38 @@ taskNameEl.addEventListener("input", () => {
     }
 });
 
-taskDateEl.addEventListener("input", () => {
+taskDateTimeEl.addEventListener("input", () => {
     switch (true) {
-        case !taskDateEl.value:
+        case !taskDateTimeEl.value:
             checkDate();
-        break;
-        case checkBackDate():
-            checkBackDate();
-        break;
-    
-        default:
-            clearEm(taskDateEl, dateEm);
-        break;
-    }
-});
-
-taskTimeEl.addEventListener("input", () => {
-    switch (true) {
-        case !taskTimeEl.value:
             checkTime();
         break;
-        case checkBackTime():
-            checkBackTime();
+        case checkBackDateTime():
+            checkBackDateTime();
         break;
+        // case checkBackTime():
+        //     checkBackTime();
+        // break;
         default:
-            clearEm(taskTimeEl, timeEm);
+            clearEm(taskDateTimeEl, dateEm);
         break;
     }
-
 });
+
+// taskTimeEl.addEventListener("input", () => {
+//     switch (true) {
+//         case !taskTimeEl.value:
+//             checkTime();
+//         break;
+//         case checkBackTime():
+//             checkBackTime();
+//         break;
+//         default:
+//             clearEm(taskTimeEl, timeEm);
+//         break;
+//     }
+
+// });
 
 
 
@@ -211,7 +229,7 @@ totalTaskContainer.addEventListener('click', () => {
 
 const clearData = () => {
     taskNameEl.value = '';
-    taskDateEl.value = '';
-    taskTimeEl.value = '';
+    taskDateTimeEl.value = '';
+    // taskTimeEl.value = '';
 }
 
