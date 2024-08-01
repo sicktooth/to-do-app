@@ -149,7 +149,7 @@ const checkBackDate = () => {
         return true;
     } else if (userYear == thisYear && userMonth == thisMonth && userDay < thisDay){
         checkDate();
-        dateEm.textContent = "Please input a today or later.";
+        dateEm.textContent = "Please input today or later.";
         return true;
     }
     return false;
@@ -165,9 +165,9 @@ const clearEm = (elem,error) => {
 }
 
 taskNameEl.addEventListener("input", () => {
-    if (taskNameEl.value.length <= 3) {
+    if (taskNameEl.value.length <= 2) {
        checkTaskName();
-        titleEm.textContent = "Task name should be at least 4 characters long";
+        titleEm.textContent = "Task name should be at least 3 characters long";
     } else {
         clearEm(taskNameEl,titleEm);
     }
