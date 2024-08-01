@@ -69,19 +69,19 @@ taskSubmit.addEventListener('click', async () => {
             checkTaskName();
             checkDate();
             checkTime();
-            break;
+        break;
         case !taskName:
             checkTaskName();
-            break;
+        break;
         case !dateTime:
             checkDate();
-            break;
+        break;
         case checkBackDateTime():
             checkBackDateTime();
-            break;
+        break;
         default:
             createTask();
-            break;
+        break;
     }
 });
 
