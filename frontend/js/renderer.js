@@ -1,6 +1,5 @@
 const taskNameEl = document.getElementById('taskName'),
         taskDateTimeEl = document.getElementById('taskDateTime'),
-        // taskTimeEl = document.getElementById('taskTime'),
         taskSubmit = document.getElementById('submitBtn'),
         titleEm = document.getElementById('errorTitle'),
         dateEm = document.getElementById('errorDate'),
@@ -18,12 +17,15 @@ const   thisDay = new Date().getDate(),
 taskSubmit.addEventListener('click', async () => {
 
     var taskName = taskNameEl.value,
-            dateTime = taskDateTimeEl.value;
-    // time = taskTimeEl.value;
+    dateTime = taskDateTimeEl.value;
+    
+    const [date, time] = dateTime.split('T');
+    const formattedDate = new Date(date).toLocaleDateString('en-US', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    const formattedTime = new Date(dateTime).toLocaleTimeString('en-US', { hour12: true }).replace(/:\d+ /, ' ');
     
     const res = await api.submitTask({
         taskName,
-        dateTime
+        dateTime:{ date, time}
     });
 
     const createTask = () => {
@@ -41,18 +43,17 @@ taskSubmit.addEventListener('click', async () => {
         const taskContent = document.createElement('div');
         taskContent.classList.add('taskContent');
     
-        const taskDateParagraph = document.createElement('p');
-        taskDateParagraph.textContent = `Date: ${date}`;
-    
+        const taskDateParagraph = document.createElement('p'); 
         const taskTimeParagraph = document.createElement('p');
-        taskTimeParagraph.textContent = `Time: ${time}`;
+        
+        taskDateParagraph.textContent = `Date: ${formattedDate}`;
+        taskTimeParagraph.textContent = `Time: ${formattedTime}`;
 
 
         const executionTime = document.createElement('p');
         executionTime.classList.add('executionTime');
-        const currentTime = new Date();
-        const formattedTime = currentTime.toLocaleTimeString('en-US', { hour12: true });
-        executionTime.textContent = ` ${formattedTime}`;
+        const currentTime = new Date().toLocaleTimeString('en-US', { hour12: true }).replace(/:\d+ /, ' ');
+        executionTime.textContent = ` ${currentTime}`;
     
         taskDiv.appendChild(taskNameHeader);
         taskContent.appendChild(taskTimeParagraph);
@@ -64,7 +65,7 @@ taskSubmit.addEventListener('click', async () => {
     }
     
     switch (true) {
-        case !taskName && !date && !time:
+        case !taskName && !dateTime:
             checkTaskName();
             checkDate();
             checkTime();
@@ -72,18 +73,12 @@ taskSubmit.addEventListener('click', async () => {
         case !taskName:
             checkTaskName();
             break;
-        case !date:
+        case !dateTime:
             checkDate();
-            break;
-        case !time:
-            checkTime();
             break;
         case checkBackDateTime():
             checkBackDateTime();
             break;
-        // case checkBackTime():
-        //     checkBackTime();
-        //     break;
         default:
             createTask();
             break;
@@ -109,31 +104,7 @@ const checkDate = () => {
 const checkTime = () => {
     checkDate();
     dateEm.textContent = "Please select a specific time";
-    // timeEm.classList.remove("hidden");
-    // taskTimeEl.classList.remove("border-transparent");
-    // timeEm.classList.add("block")
-    // taskTimeEl.classList.add("errorInput")
 }
-
-// const checkBackTime = () => {
-//     let taskDate = new Date(taskDateTimeEl.value),
-//         userMonth = taskDate.getMonth(),
-//         userDay = taskDate.getDate(), 
-//         taskTime = new Date(taskDateTimeEl.value),
-//         userHour = taskTime.getHours(),
-//         userMinutes = taskTime.getMinutes();
-
-//     if (userMonth == thisMonth && userDay == thisDay && userHour < thisHour) {
-//         checkTime();
-//         dateEm.textContent = "Please input this hour or later";
-//         return true;
-//     } else if (userMonth == thisMonth && userDay == thisDay && userHour == thisHour && userMinutes < thisMinute) {
-//         checkTime();
-//         dateEm.textContent = "Please input some mins in the future";
-//         return true;
-//     }
-//     return false;
-// }
 
 const checkBackDateTime = () => {
     let taskDate = new Date(taskDateTimeEl.value),
@@ -193,35 +164,16 @@ taskDateTimeEl.addEventListener("input", () => {
         case !taskDateTimeEl.value:
             checkDate();
             checkTime();
+            dateEm.textContent = "please add a date and time";
         break;
         case checkBackDateTime():
             checkBackDateTime();
         break;
-        // case checkBackTime():
-        //     checkBackTime();
-        // break;
         default:
             clearEm(taskDateTimeEl, dateEm);
         break;
     }
 });
-
-// taskTimeEl.addEventListener("input", () => {
-//     switch (true) {
-//         case !taskTimeEl.value:
-//             checkTime();
-//         break;
-//         case checkBackTime():
-//             checkBackTime();
-//         break;
-//         default:
-//             clearEm(taskTimeEl, timeEm);
-//         break;
-//     }
-
-// });
-
-
 
 totalTaskContainer.addEventListener('click', () => {
     window.location.href = "allTasks.html";
@@ -230,6 +182,5 @@ totalTaskContainer.addEventListener('click', () => {
 const clearData = () => {
     taskNameEl.value = '';
     taskDateTimeEl.value = '';
-    // taskTimeEl.value = '';
 }
 
