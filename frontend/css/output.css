@@ -587,6 +587,10 @@ video {
   margin-left: auto;
 }
 
+.mr-3 {
+  margin-right: 0.75rem;
+}
+
 .mt-11 {
   margin-top: 2.75rem;
 }
@@ -726,6 +730,10 @@ video {
   padding: 1.5rem;
 }
 
+.pb-6 {
+  padding-bottom: 1.5rem;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -764,13 +772,18 @@ video {
   color: rgb(147 197 253 / var(--tw-text-opacity));
 }
 
+.text-green-500 {
+  --tw-text-opacity: 1;
+  color: rgb(34 197 94 / var(--tw-text-opacity));
+}
+
 .text-red-400 {
   --tw-text-opacity: 1;
   color: rgb(248 113 113 / var(--tw-text-opacity));
 }
 
-.outline-green-300 {
-  outline-color: #86efac;
+.outline-blue-300 {
+  outline-color: #93c5fd;
 }
 
 .transition-all {
@@ -833,10 +846,12 @@ video {
   height: 50px;
 }
 
-.hover\:scale-50:hover {
-  --tw-scale-x: .5;
-  --tw-scale-y: .5;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+.task:hover .btns {
+  display: block;
+}
+
+.hide{
+  display: none;
 }
 
 .hover\:scale-105:hover {
@@ -857,9 +872,9 @@ video {
   border-width: 1px;
 }
 
-.hover\:border-green-300:hover {
+.hover\:border-blue-300:hover {
   --tw-border-opacity: 1;
-  border-color: rgb(134 239 172 / var(--tw-border-opacity));
+  border-color: rgb(147 197 253 / var(--tw-border-opacity));
 }
 
 .hover\:bg-blue-400:hover {
