@@ -11,7 +11,10 @@
      <link rel="stylesheet" href="css/output.css">
 </head>
 <body class="bg-slate-100">
-    <h1 class="text-3xl font-semibold text-blue-300 p-4 roboto-mono-head">All Reminders</h1>
+    <header class="flex text-3xl font-semibold text-blue-300 p-4 roboto-mono-head gap-2">
+        <h1 class="">All Reminders</h1>
+        <var class="text-green-300 border">4</var>
+    </header>
     <section class="flex flex-col mt-5 w-3/4 mx-auto pb-6" id="allTasks">
         <div class="ml-auto mb-4 hover:border-blue-300 hover:rounded-md hover:border h-13">
             <a href="main.html">
@@ -21,81 +24,106 @@
             </a>
         </div>
 
-        <article id="task" class="flex task taskContainer mb-5 flex-1 hover:border-blue-300 border bg-white cursor-pointer p-6 hover:scale-105 transition-all rounded-xl">
-            <div class="text-green-500">
-                <h3 class="taskNameHeader">create exe file for electron</h3>
-                <div class="taskContent">
-                    <p class="text-xs">Time: 4:35 PM</p>
-                    <p class="text-xs">Date: 08/03/2024</p>
-                </div>
-                <p class="executionTime"> 4:35 PM</p>
-            </div>
-            <div class="ml-auto mt-auto hidden btns">
-                <button class="taskDeleteBtn" title="Delete Reminder" class="mr-3">
-                    <svg width="40px" height="40px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 7H20" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                </button>
-                <button id="taskEditBtn" title="Edit Reminder">
-                    <svg width="40px" height="40px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#93c5fd"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.2"></g><g id="SVGRepo_iconCarrier"> <path stroke="#93c5fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.02" d="M3.8 12.963L2 18l4.8-.63L18.11 6.58a2.612 2.612 0 00-3.601-3.785L3.8 12.963z"></path> </g></svg>
-                </button>
-            </div>
-        </article>
+        <div id="taskList">
 
-        <article id="task" class="flex task taskContainer mb-5 flex-1 hover:border-blue-300 border bg-white cursor-pointer p-6 hover:scale-105 transition-all rounded-xl">
-            <div class="text-green-500">
-                <h3 class="taskNameHeader">create exe file for electron</h3>
-                <div class="taskContent">
-                    <p class="text-xs">Time: 4:35 PM</p>
-                    <p class="text-xs">Date: 08/03/2024</p>
+            <article id="task" class="flex task taskContainer mb-5 flex-1 hover:border-blue-300 border bg-white cursor-pointer p-6 hover:scale-105 transition-all rounded-xl">
+                <div class="text-green-500">
+                    <h3 class="taskNameHeader">create exe file for electron</h3>
+                    <div class="taskContent">
+                        <p class="text-xs">Time: 4:35 PM</p>
+                        <p class="text-xs">Date: 08/03/2024</p>
+                    </div>
+                    <p class="executionTime"> 4:35 PM</p>
                 </div>
-                <p class="executionTime"> 4:35 PM</p>
-            </div>
-            <div class="ml-auto mt-auto hidden btns">
-                <button class="taskDeleteBtn" title="Delete Reminder" class="mr-3">
-                    <svg width="40px" height="40px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 7H20" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                </button>
-                <button id="taskEditBtn" title="Edit Reminder">
-                    <svg width="40px" height="40px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#93c5fd"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.2"></g><g id="SVGRepo_iconCarrier"> <path stroke="#93c5fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.02" d="M3.8 12.963L2 18l4.8-.63L18.11 6.58a2.612 2.612 0 00-3.601-3.785L3.8 12.963z"></path> </g></svg>
-                </button>
-            </div>
-        </article>
+                <div class="ml-auto mt-auto hidden btns">
+                    <button class="taskDeleteBtn" title="Delete Reminder" class="mr-3">
+                        <svg width="40px" height="40px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 7H20" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </button>
+                    <button id="taskEditBtn" title="Edit Reminder">
+                        <svg width="40px" height="40px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#93c5fd"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.2"></g><g id="SVGRepo_iconCarrier"> <path stroke="#93c5fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.02" d="M3.8 12.963L2 18l4.8-.63L18.11 6.58a2.612 2.612 0 00-3.601-3.785L3.8 12.963z"></path> </g></svg>
+                    </button>
+                </div>
+            </article>
 
-        <article id="task" class="flex task taskContainer mb-5 flex-1 hover:border-blue-300 border bg-white cursor-pointer p-6 hover:scale-105 transition-all rounded-xl">
-            <div class="text-green-500">
-                <h3 class="taskNameHeader">create exe file for electron</h3>
-                <div class="taskContent">
-                    <p class="text-xs">Time: 4:35 PM</p>
-                    <p class="text-xs">Date: 08/03/2024</p>
+            <article id="task" class="flex task taskContainer mb-5 flex-1 hover:border-blue-300 border bg-white cursor-pointer p-6 hover:scale-105 transition-all rounded-xl">
+                <div class="text-green-500">
+                    <h3 class="taskNameHeader">create exe file for electron</h3>
+                    <div class="taskContent">
+                        <p class="text-xs">Time: 4:35 PM</p>
+                        <p class="text-xs">Date: 08/03/2024</p>
+                    </div>
+                    <p class="executionTime"> 4:35 PM</p>
                 </div>
-                <p class="executionTime"> 4:35 PM</p>
-            </div>
-            <div class="ml-auto mt-auto hidden btns">
-                <button class="taskDeleteBtn" title="Delete Reminder" class="mr-3">
-                    <svg width="40px" height="40px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 7H20" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                </button>
-                <button id="taskEditBtn" title="Edit Reminder">
-                    <svg width="40px" height="40px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#93c5fd"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.2"></g><g id="SVGRepo_iconCarrier"> <path stroke="#93c5fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.02" d="M3.8 12.963L2 18l4.8-.63L18.11 6.58a2.612 2.612 0 00-3.601-3.785L3.8 12.963z"></path> </g></svg>
-                </button>
-            </div>
-        </article>
+                <div class="ml-auto mt-auto hidden btns">
+                    <button class="taskDeleteBtn" title="Delete Reminder" class="mr-3">
+                        <svg width="40px" height="40px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 7H20" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </button>
+                    <button id="taskEditBtn" title="Edit Reminder">
+                        <svg width="40px" height="40px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#93c5fd"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.2"></g><g id="SVGRepo_iconCarrier"> <path stroke="#93c5fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.02" d="M3.8 12.963L2 18l4.8-.63L18.11 6.58a2.612 2.612 0 00-3.601-3.785L3.8 12.963z"></path> </g></svg>
+                    </button>
+                </div>
+            </article>
+    
+            <article id="task" class="flex task taskContainer mb-5 flex-1 hover:border-blue-300 border bg-white cursor-pointer p-6 hover:scale-105 transition-all rounded-xl">
+                <div class="text-green-500">
+                    <h3 class="taskNameHeader">create exe file for electron</h3>
+                    <div class="taskContent">
+                        <p class="text-xs">Time: 4:35 PM</p>
+                        <p class="text-xs">Date: 08/03/2024</p>
+                    </div>
+                    <p class="executionTime"> 4:35 PM</p>
+                </div>
+                <div class="ml-auto mt-auto hidden btns">
+                    <button class="taskDeleteBtn" title="Delete Reminder" class="mr-3">
+                        <svg width="40px" height="40px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 7H20" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </button>
+                    <button id="taskEditBtn" title="Edit Reminder">
+                        <svg width="40px" height="40px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#93c5fd"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.2"></g><g id="SVGRepo_iconCarrier"> <path stroke="#93c5fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.02" d="M3.8 12.963L2 18l4.8-.63L18.11 6.58a2.612 2.612 0 00-3.601-3.785L3.8 12.963z"></path> </g></svg>
+                    </button>
+                </div>
+            </article>
+    
+            <article id="task" class="flex task taskContainer mb-5 flex-1 hover:border-blue-300 border bg-white cursor-pointer p-6 hover:scale-105 transition-all rounded-xl">
+                <div class="text-green-500">
+                    <h3 class="taskNameHeader">create exe file for electron</h3>
+                    <div class="taskContent">
+                        <p class="text-xs">Time: 4:35 PM</p>
+                        <p class="text-xs">Date: 08/03/2024</p>
+                    </div>
+                    <p class="executionTime"> 4:35 PM</p>
+                </div>
+                <div class="ml-auto mt-auto hidden btns">
+                    <button class="taskDeleteBtn" title="Delete Reminder" class="mr-3">
+                        <svg width="40px" height="40px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 7H20" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </button>
+                    <button id="taskEditBtn" title="Edit Reminder">
+                        <svg width="40px" height="40px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#93c5fd"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.2"></g><g id="SVGRepo_iconCarrier"> <path stroke="#93c5fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.02" d="M3.8 12.963L2 18l4.8-.63L18.11 6.58a2.612 2.612 0 00-3.601-3.785L3.8 12.963z"></path> </g></svg>
+                    </button>
+                </div>
+            </article>
+    
+            <article id="task" class="flex task taskContainer mb-5 flex-1 hover:border-blue-300 border bg-white cursor-pointer p-6 hover:scale-105 transition-all rounded-xl">
+                <div class="text-green-500">
+                    <h3 class="taskNameHeader">create exe file for electron</h3>
+                    <div class="taskContent">
+                        <p class="text-xs">Time: 4:35 PM</p>
+                        <p class="text-xs">Date: 08/03/2024</p>
+                    </div>
+                    <p class="executionTime"> 4:35 PM</p>
+                </div>
+                <div class="ml-auto mt-auto hidden btns">
+                    <button class="taskDeleteBtn" title="Delete Reminder" class="mr-3">
+                        <svg width="40px" height="40px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 7H20" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                    </button>
+                    <button id="taskEditBtn" title="Edit Reminder">
+                        <svg width="40px" height="40px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#93c5fd"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.2"></g><g id="SVGRepo_iconCarrier"> <path stroke="#93c5fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.02" d="M3.8 12.963L2 18l4.8-.63L18.11 6.58a2.612 2.612 0 00-3.601-3.785L3.8 12.963z"></path> </g></svg>
+                    </button>
+                </div>
+            </article>
 
-        <article id="task" class="flex task taskContainer mb-5 flex-1 hover:border-blue-300 border bg-white cursor-pointer p-6 hover:scale-105 transition-all rounded-xl">
-            <div class="text-green-500">
-                <h3 class="taskNameHeader">create exe file for electron</h3>
-                <div class="taskContent">
-                    <p class="text-xs">Time: 4:35 PM</p>
-                    <p class="text-xs">Date: 08/03/2024</p>
-                </div>
-                <p class="executionTime"> 4:35 PM</p>
-            </div>
-            <div class="ml-auto mt-auto hidden btns">
-                <button class="taskDeleteBtn" title="Delete Reminder" class="mr-3">
-                    <svg width="40px" height="40px" viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 7H20" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="#f87171" stroke-width="1.224" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
-                </button>
-                <button id="taskEditBtn" title="Edit Reminder">
-                    <svg width="40px" height="40px" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#93c5fd"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" stroke="#CCCCCC" stroke-width="0.2"></g><g id="SVGRepo_iconCarrier"> <path stroke="#93c5fd" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.02" d="M3.8 12.963L2 18l4.8-.63L18.11 6.58a2.612 2.612 0 00-3.601-3.785L3.8 12.963z"></path> </g></svg>
-                </button>
-            </div>
-        </article>
+        </div>
+
+        
 
         
             

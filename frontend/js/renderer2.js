@@ -1,14 +1,19 @@
-// const deleteBtns = document.querySelectorAll(".taskDeleteBtn");
+var totalNumberOfTasks = document.getElementById("taskList").childElementCount;
+const  totalNumContainer = document.getElementsByTagName("var"),
+deleteBtns = document.querySelectorAll(".taskDeleteBtn");
 
-// deleteBtns.forEach((deleteBtn) => {
-//     const task = deleteBtn.parentElement.querySelector(".taskContainer");
+totalNumContainer[0].textContent = totalNumberOfTasks;
 
-//     deleteBtn.addEventListener("click", () => {
-//         const deleteTask = (taskId) => {
-//             taskId.classList.add("hide");
-//         }
-//         const tasks = document.querySelectorAll("#task");
-//         deleteTask(tasks);
-//         // window.location.href = "allTasks.html";
-//     });
-// });
+deleteBtns.forEach(deleteBtn =>{
+    deleteBtn.addEventListener("click", function (){
+        const parentEl = this.closest(".taskContainer");
+        if (parentEl){
+            parentEl.style.display = "none";
+            totalNumberOfTasks--;
+            totalNumContainer[0].textContent = totalNumberOfTasks;
+        }
+    });
+});
+
+// totalNumContainer[0].textContent = totalNumberOfTasks;
+console.log(totalNumberOfTasks);
