@@ -28,7 +28,7 @@ taskSubmit.addEventListener('click', async () => {
         dateTime:{ date, time}
     });
 
-    const createTask = () => {
+    const createTask = (taskContainer) => {
         var firstLetter_TN = taskName.slice(0,1).toUpperCase();
         var restName = taskName.slice(1,taskName.length);
         var taskHeaderName = firstLetter_TN + restName;
@@ -60,7 +60,7 @@ taskSubmit.addEventListener('click', async () => {
         taskContent.appendChild(taskDateParagraph);
         taskDiv.appendChild(taskContent);
         taskDiv.appendChild(executionTime);
-        totalTaskContainer.appendChild(taskDiv);
+        taskContainer.appendChild(taskDiv);
         clearData();
     }
     
@@ -80,7 +80,7 @@ taskSubmit.addEventListener('click', async () => {
             checkBackDateTime();
         break;
         default:
-            createTask();
+            createTask(totalTaskContainer);
         break;
     }
 });
