@@ -10,8 +10,7 @@ const   thisDay = new Date().getDate(),
         thisMonth = new Date().getMonth(),
         thisHour = new Date().getHours(),
         thisMinute = new Date().getMinutes(),
-        thisYear = new Date().getFullYear();
-
+thisYear = new Date().getFullYear();
 
 
 taskSubmit.addEventListener('click', async () => {
@@ -44,7 +43,9 @@ taskSubmit.addEventListener('click', async () => {
         taskContent.classList.add('taskContent');
     
         const taskDateParagraph = document.createElement('p'); 
+        taskDateParagraph.classList.add("taskDate");
         const taskTimeParagraph = document.createElement('p');
+        taskTimeParagraph.classList.add("taskTime");
         
         taskDateParagraph.textContent = `Date: ${formattedDate}`;
         taskTimeParagraph.textContent = `Time: ${formattedTime}`;

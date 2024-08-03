@@ -1,6 +1,12 @@
 var totalNumberOfTasks = document.getElementById("taskList").childElementCount;
+
 const  totalNumContainer = document.getElementsByTagName("var"),
-deleteBtns = document.querySelectorAll(".taskDeleteBtn");
+deleteBtns = document.querySelectorAll(".taskDeleteBtn"),
+editBtns = document.querySelectorAll(".taskEditBtn"),
+titleInput = document.querySelector(".taskNameHeader"),
+dateInput = document.querySelector(".taskDate"),
+timeInput = document.querySelector(".taskTime");
+
 
 totalNumContainer[0].textContent = totalNumberOfTasks;
 
@@ -15,5 +21,9 @@ deleteBtns.forEach(deleteBtn =>{
     });
 });
 
-// totalNumContainer[0].textContent = totalNumberOfTasks;
-console.log(totalNumberOfTasks);
+editBtns.forEach(editBtn => {
+    editBtn.addEventListener('click', () => {
+    
+    });
+});
+// console.log(totalNumberOfTasks);
