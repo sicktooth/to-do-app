@@ -50,3 +50,7 @@
 .h-13 {height: 50px;}
 .task:hover .btns {display: block;}
 .hide{display: none;}
+
+.empty {
+    background-color:#f87171 ;
+}

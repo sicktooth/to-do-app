@@ -13,7 +13,7 @@
 <body class="bg-slate-100">
     <header class="flex text-3xl font-semibold text-blue-300 p-4 roboto-mono-head gap-2">
         <h1 class="">All Reminders</h1>
-        <var class="text-white w-9 h-9 bg-green-300 border text-3xl rounded-lg text-center"></var>
+        <var id="vary" class="text-white w-9 transition-all h-9 bg-green-300 border text-3xl rounded-lg text-center"></var>
     </header>
     <section class="flex flex-col mt-5 w-3/4 mx-auto pb-6" id="allTasks">
         <div class="ml-auto mb-4 hover:border-blue-300 hover:rounded-md hover:border h-13">
@@ -124,8 +124,27 @@
         </div>
 
 
-
-        
+        <aside class="flex flex-col mt-5 w-2/4 max-lg:w-9/12 mx-auto">
+            <div class="flex flex-col mb-6 h-28">
+                <label for="taskName" class="mb-3 text-2xl">Title</label>
+                <input class="outline-blue-300 border border-transparent p-3 rounded-lg" type="text" id="taskName" placeholder="add a title ..." autocomplete="off">
+                <div id="errorTitle" role="alert" class="h-5 hidden text-sm mt-2 ml-3 text-red-400"></div>
+            </div>
+            
+            <div class="flex flex-col mb-6 h-28">
+                <label for="taskDateTime" class="mb-3 text-2xl">Date & Time</label>
+                <input class="outline-blue-300 border border-transparent p-3 w-5/12 rounded-lg" type="datetime-local" id="taskDateTime" autocomplete="off">
+                <div id="errorDate" role="alert" class="h-5 hidden text-sm mt-2 ml-3 text-red-400"></div>
+            </div>
+            
+            <div class="flex">
+                <button class="bg-green-300 font-bold hover:bg-green-400 hover:rounded-lg p-2 rounded-3xl text-xl mt-11 mr-auto roboto-mono-head mb-4 text-white" id="editCancel">Cancel</button>
+                <button class="bg-green-300 font-bold hover:bg-green-400 hover:rounded-lg p-2 rounded-3xl text-xl mt-11 mr-auto roboto-mono-head mb-4 text-white" id="editSubmit">Done</button>
+            </div>
+           
+    
+        </aside>
+       
 
         
 
