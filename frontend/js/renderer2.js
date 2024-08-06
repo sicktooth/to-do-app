@@ -4,8 +4,11 @@ const  totalNumContainer = document.getElementsByTagName("var"),
 deleteBtns = document.querySelectorAll(".taskDeleteBtn"),
 editBtns = document.querySelectorAll(".taskEditBtn"),
 
-taskInputName = document.querySelector("#taskName"),
-taskInputDateTime = document.querySelector("#taskDateTime");
+taskInputName = document.querySelector("#taskName");
+var taskInputDateTime = document.querySelector("#taskDateTime");
+
+const editCancelButton = document.querySelector("#editCancel"),
+submitEditButton = document.querySelector("#editSubmit");
 
 
 totalNumContainer[0].textContent = totalNumberOfTasks;
@@ -34,48 +37,55 @@ function displayEdit() {
     const aside = document.getElementById("aside");
     aside.classList.remove("hidden");
     aside.classList.add("flex");
-
-    
 }
 
-
-
-
+function cancelEdit() {
+    const parentE = document.querySelector("#allTasks");
+    parentE.style.display = 'flex';
+    const aside = document.getElementById("aside");
+    aside.classList.remove("flex");
+    aside.classList.add("hidden");
+}
 
 editBtns.forEach(editBtn => {
     editBtn.addEventListener('click', () => {
         displayEdit();
-        const parentE = editBtn.closest(".taskContainer");
+        const parentE = editBtn.closest(".task");
+
+        var taskName = parentE.querySelector(".taskNameHeader").textContent;
+                const taskDate = parentE.querySelector(".date").textContent;
+                const taskTime = parentE.querySelector(".time").textContent;
         
-        setTimeout(inputValues, 200);
+        setTimeout(inputValues, 500);
 
         function inputValues() {
-    
-            // taskInputDateTime.split('T') = [date, time];
 
             if (parentE) {
-                const taskName = parentE.querySelectorAll(".taskNameHeader").textContent,
-                taskDate = parentE.querySelectorAll(".taskDate").textContent,
-                taskTime = parentE.querySelectorAll(".taskTime").textContent;
-                console.log(taskName);
+                const [month, day, year] = taskDate.split('/');
+                const reversedDate = [year, month, day].join('/');
+                const FormattedReversedDate = reversedDate.replace(/\//g, '-');
 
-                // taskInputDateTime.value = `${taskDate}T${taskTime}`;
-                // taskInputName.value = taskName;
-
+                taskInputDateTime.value = FormattedReversedDate+"T"+taskTime;
+                taskInputName.value = taskName;
             }
            
         }
+        
     });
+    
 });
 
+editCancelButton.addEventListener("click", cancelEdit);
 
 
-
-
-
-
-
-
+// submitEditButton.addEventListener("click", () => {
+//     const parentE = submitEditButton.closest(".task");
+//     var finalTaskName = taskInputName.value;
+//     var taskName = parentE.querySelector(".taskNameHeader");
+//     taskName.textContent = finalTaskName;
+//     console.log(finalTaskName);
+//     cancelEdit();
+// });
 
 
 

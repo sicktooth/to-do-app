@@ -46,9 +46,22 @@ taskSubmit.addEventListener('click', async () => {
         taskDateParagraph.classList.add("taskDate");
         const taskTimeParagraph = document.createElement('p');
         taskTimeParagraph.classList.add("taskTime");
+
+        const taskInputTime = document.createElement('p');
+        taskInputTime.classList.add("hidden", "time");
+        taskInputTime.textContent = time;
+        taskContent.appendChild(taskInputTime);
         
-        taskDateParagraph.textContent = `Date: ${formattedDate}`;
-        taskTimeParagraph.textContent = `Time: ${formattedTime}`;
+        taskDateParagraph.textContent = `Date: `;
+        const taskDate = document.createElement('span');
+        taskDate.classList.add( "date");
+        taskDate.textContent = formattedDate;
+        taskDateParagraph.appendChild(taskDate);
+        taskTimeParagraph.textContent = `Time: `;
+        const taskTime = document.createElement('span');
+        taskTime.classList.add("finalTime");
+        taskTime.textContent = formattedTime;
+        taskTimeParagraph.appendChild(taskTime);
 
 
         const executionTime = document.createElement('p');
