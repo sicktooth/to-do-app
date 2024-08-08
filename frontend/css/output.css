@@ -1,5 +1,5 @@
 /*
-! tailwindcss v3.4.7 | MIT License | https://tailwindcss.com
+! tailwindcss v3.4.8 | MIT License | https://tailwindcss.com
 */
 
 /*
@@ -699,10 +699,6 @@ video {
   overflow-x: hidden;
 }
 
-.rounded-3xl {
-  border-radius: 1.5rem;
-}
-
 .rounded-lg {
   border-radius: 0.5rem;
 }
@@ -862,6 +858,9 @@ video {
   font-weight: 600;
   font-size: 1.875rem;
   line-height: 2rem;
+  /* overflow: visible;
+    white-space: normal;
+    text-overflow: clip; */
 }
 
 .taskContent {
