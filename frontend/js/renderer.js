@@ -83,6 +83,7 @@ taskSubmit.addEventListener('click', async () => {
             checkTaskName();
             checkDate();
             checkTime();
+            dateEm.textContent = "Please select a specific date and time";
         break;
         case !taskName:
             checkTaskName();
