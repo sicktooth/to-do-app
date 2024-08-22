@@ -198,4 +198,3 @@ const clearData = () => {
     taskNameEl.value = '';
     taskDateTimeEl.value = '';
 }
-
