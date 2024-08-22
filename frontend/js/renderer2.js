@@ -77,7 +77,7 @@ editBtns.forEach(editBtn => {
             const finalTaskName = taskInputName.value;
             // Changes the first letter to upper case
             let firstLetter_TN = finalTaskName.slice(0,1).toUpperCase();
-            let restName = finalTaskName.slice(1,taskName.length);
+            let restName = finalTaskName.slice(1);
             let taskHeaderName = firstLetter_TN + restName;
             const taskNameElement = parentElement.querySelector(".taskNameHeader");
             taskNameElement.textContent = taskHeaderName;
