@@ -10,6 +10,7 @@ const   thisDay = new Date().getDate(),
         thisMonth = new Date().getMonth(),
         thisHour = new Date().getHours(),
         thisMinute = new Date().getMinutes(),
+        thisSecond = new Date().getSeconds(),
 thisYear = new Date().getFullYear();
 
 
@@ -128,13 +129,14 @@ const checkBackDateTime = () => {
         userYear = taskDate.getFullYear(),
         taskTime = new Date(taskDateTimeEl.value),
         userHour = taskTime.getHours(),
-    userMinutes = taskTime.getMinutes();
+    userMinutes = taskTime.getMinutes(),
+    userSecs = taskTime.getSeconds();
 
     if (userMonth == thisMonth && userDay == thisDay && userHour < thisHour) {
         checkTime();
         dateEm.textContent = "Please input this hour or later";
         return true;
-    } else if (userMonth == thisMonth && userDay == thisDay && userHour == thisHour && userMinutes <= thisMinute) {
+    } else if (userMonth == thisMonth && userDay == thisDay && userHour == thisHour && userMinutes <= thisMinute && userSecs <= thisSecond) {
         checkTime();
         dateEm.textContent = "Please input some mins in the future";
         return true;
